@@ -1,0 +1,1 @@
+Whats left: write legal moves methods for the pieces
