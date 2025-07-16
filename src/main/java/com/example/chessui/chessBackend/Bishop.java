@@ -8,6 +8,7 @@ public class Bishop extends Piece {
         super(colorString, initalPosition, b);
 
         this.setMovePattern(new int[][] {{1,1},{-1,1},{-1,-1},{1,-1}});
+        this.setPieceType("bishop");
 
         if(colorString.equals("white")){
             this.setCharacter("♝");

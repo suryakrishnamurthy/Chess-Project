@@ -6,6 +6,7 @@ public class Knight extends Piece {
     
     public Knight(String colorString, Tile initalPosition, Board b){
         super(colorString, initalPosition, b);
+        this.setPieceType("knight");
         this.setMovePattern(new int[][] {{2, 1}, {2, -1}, {-2, 1}, {-2, -1}, {1, 2}, {1, -2}, {-1, 2}, {-1, -2}});
         if(colorString.equals("white")){
             this.setCharacter("♞");

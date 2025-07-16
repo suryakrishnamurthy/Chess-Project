@@ -8,6 +8,7 @@ public class Queen extends Piece {
     
     public Queen(String colorString, Tile initalPosition, Board b){
         super(colorString, initalPosition, b);
+        this.setPieceType("queen");
         this.setMovePattern(new int[][] {{-1, 0},{1, 0},{0, 1},{0, -1},{1, 1},{1, -1},{-1, 1},{-1, -1}});
         if(colorString.equals("white")){
             this.setCharacter("♛");

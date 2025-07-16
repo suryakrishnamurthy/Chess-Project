@@ -8,6 +8,7 @@ public class King extends Piece {
     public King(String colorString, Tile initalPosition, Board b){
         super(colorString, initalPosition, b);
         this.initialPositionTile=initalPosition;
+        this.setPieceType("king");
         this.setMovePattern(new int[][] {{-1, 0},{1, 0},{0, 1},{0, -1},{1, 1},{1, -1},{-1, 1},{-1, -1}});
         if(colorString.equals("white")){
             this.setCharacter("♚");
