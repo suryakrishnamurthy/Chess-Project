@@ -252,20 +252,20 @@ public class Board {
     }
 
     public King getKing(String color){
-        if(color=="white"){
+        if(color.equals("white")){
             return this.whiteKing;
         }
-        if(color=="black"){
+        if(color.equals("black")){
             return this.blackKing;
         }
         return null;
     }
 
     public Rook[] getRooks(String color){
-        if(color=="white"){
+        if(color.equals("white")){
             return new Rook[] {this.whiteRooka, this.whiteRookb};
         }
-        if(color=="black"){
+        if(color.equals("black")){
             return new Rook[] {this.blackRooka, this.blackRookb};
         }
         return null;

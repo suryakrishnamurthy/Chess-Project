@@ -58,7 +58,7 @@ public class Game {
                             target = b.getMyBoard()[rowOfTarget][colOfTarget];
                             //check if correct color and is in valid moves
                             if(toMove!=null){
-                                if(toMove.getColor()==turnTeam){
+                                if(toMove.getColor().equals(turnTeam)){
 
                                     for(Move[] moves : toMove.getValidMoves()){
 
@@ -85,14 +85,14 @@ public class Game {
         //promotion check
 
 
-        if(moveToDo[0].getStartPiece().getPieceType()=="pawn" && ((turnTeam=="white" && moveToDo[0].getEnd().getPosition()[0]==0) || (turnTeam=="black" && moveToDo[0].getEnd().getPosition()[0]==7))){
+        if(moveToDo[0].getStartPiece().getPieceType().equals("pawn") && ((turnTeam.equals("white") && moveToDo[0].getEnd().getPosition()[0]==0) || (turnTeam.equals("black") && moveToDo[0].getEnd().getPosition()[0]==7))){
             boolean userInput2Correct = false;
             do{
                 System.out.println("What would you like to promote your pawn to?");
                 String promotion = inputReader.nextLine();
                 ArrayList<Piece> teamPieces = null;
 
-                if(turnTeam=="white"){
+                if(turnTeam.equals("white")){
                     teamPieces = b.getWhite();
                 }
                 else{

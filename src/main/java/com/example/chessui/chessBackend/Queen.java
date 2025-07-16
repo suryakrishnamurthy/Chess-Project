@@ -9,10 +9,10 @@ public class Queen extends Piece {
     public Queen(String colorString, Tile initalPosition, Board b){
         super(colorString, initalPosition, b);
         this.setMovePattern(new int[][] {{-1, 0},{1, 0},{0, 1},{0, -1},{1, 1},{1, -1},{-1, 1},{-1, -1}});
-        if(colorString=="white"){
+        if(colorString.equals("white")){
             this.setCharacter("♛");
         }
-        if(colorString=="black"){
+        if(colorString.equals("black")){
             this.setCharacter("♕");
         }
     }
@@ -54,7 +54,7 @@ public class Queen extends Piece {
                     moveChecker.add(nextMoveToCheck);
                 }
                 
-                else if(possibleTile.getPiece().getColor()!=this.getColor()){
+                else if(!possibleTile.getPiece().getColor().equals(this.getColor())){
                     Move[] possibleMove = new Move[] {new Move(this.getPosition(), this, possibleTile, possibleTile.getPiece())};
                     ret.add(possibleMove);
                 }

@@ -10,11 +10,11 @@ public class Pawn extends Piece {
         super(colorString, initalPosition, b);
         this.initialPositionTile=initalPosition;
         this.setPieceType("pawn");
-        if(colorString=="white"){
+        if(colorString.equals("white")){
             this.setCharacter("♟");
             this.setMovePattern(new int[][] {{-1, 0}, {-1, 1}, {-1, -1}});
         }
-        if(colorString=="black"){
+        if(colorString.equals("black")){
             this.setCharacter("♙");
             this.setMovePattern(new int[][] {{1, 0}, {1, 1}, {1, -1}});
         }
@@ -45,14 +45,14 @@ public class Pawn extends Piece {
                 else if(!this.getBoard().getMoveHistory().isEmpty()){ 
                     Move enPassantCheck = this.getBoard().getMoveHistory().getLast()[0];
                     if(enPassantCheck.getEnd()!=null){
-                        if(enPassantCheck.getStartPiece().getPieceType()=="pawn" && 2==Math.abs(enPassantCheck.getStart().getPosition()[0]-enPassantCheck.getEnd().getPosition()[0]) && enPassantCheck.getStartPiece().getPosition()==this.getBoard().getMyBoard()[this.getPosition().getPosition()[0]][this.getPosition().getPosition()[1]+currentMove[1]]){ //enPassantCheck.getStartPiece().getPosition()==this.getBoard().getMyBoard()[this.getPosition().getPosition()[0]][this.getPosition().getPosition()[1]+currentMove[1]]  &&
+                        if(enPassantCheck.getStartPiece().getPieceType().equals("pawn") && 2==Math.abs(enPassantCheck.getStart().getPosition()[0]-enPassantCheck.getEnd().getPosition()[0]) && enPassantCheck.getStartPiece().getPosition()==this.getBoard().getMyBoard()[this.getPosition().getPosition()[0]][this.getPosition().getPosition()[1]+currentMove[1]]){ //enPassantCheck.getStartPiece().getPosition()==this.getBoard().getMyBoard()[this.getPosition().getPosition()[0]][this.getPosition().getPosition()[1]+currentMove[1]]  &&
                             Move[] possibleMove = new Move[] {new Move(this.getPosition(), this, possibleTile, possibleTile.getPiece()), new Move(enPassantCheck.getStartPiece().getPosition(), enPassantCheck.getStartPiece(), null, null)};
                             ret.add(possibleMove);
                         }
                     }
                 }
                 if(possibleTile.getPiece()!=null){
-                    if((possibleTile.getPiece().getColor()!=this.getColor()) && i!=0){
+                    if((!possibleTile.getPiece().getColor().equals(this.getColor())) && i!=0){
                         Move[] possibleMove = new Move[] {new Move(this.getPosition(), this, possibleTile, possibleTile.getPiece())};
                         ret.add(possibleMove);
                     }

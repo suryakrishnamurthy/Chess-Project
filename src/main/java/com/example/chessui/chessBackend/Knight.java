@@ -7,10 +7,10 @@ public class Knight extends Piece {
     public Knight(String colorString, Tile initalPosition, Board b){
         super(colorString, initalPosition, b);
         this.setMovePattern(new int[][] {{2, 1}, {2, -1}, {-2, 1}, {-2, -1}, {1, 2}, {1, -2}, {-1, 2}, {-1, -2}});
-        if(colorString=="white"){
+        if(colorString.equals("white")){
             this.setCharacter("♞");
         }
-        if(colorString=="black"){
+        if(colorString.equals("black")){
             this.setCharacter("♘");
         }
     }
@@ -30,7 +30,7 @@ public class Knight extends Piece {
                 
                 Tile possibleTile = this.getBoard().getMyBoard()[currentPos[0]+currentMove[0]][currentPos[1]+currentMove[1]];
 
-                if(possibleTile.getPiece()==null || possibleTile.getPiece().getColor()!=this.getColor()){
+                if(possibleTile.getPiece()==null || !possibleTile.getPiece().getColor().equals(this.getColor())){
                     Move[] possibleMove = new Move[] {new Move(this.getPosition(), this, possibleTile, possibleTile.getPiece())};
                     ret.add(possibleMove);                }
             }

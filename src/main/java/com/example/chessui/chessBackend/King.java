@@ -9,10 +9,10 @@ public class King extends Piece {
         super(colorString, initalPosition, b);
         this.initialPositionTile=initalPosition;
         this.setMovePattern(new int[][] {{-1, 0},{1, 0},{0, 1},{0, -1},{1, 1},{1, -1},{-1, 1},{-1, -1}});
-        if(colorString=="white"){
+        if(colorString.equals("white")){
             this.setCharacter("♚");
         }
-        if(colorString=="black"){
+        if(colorString.equals("black")){
             this.setCharacter("♔");
         }
     }
@@ -32,7 +32,7 @@ public class King extends Piece {
                 
                 Tile possibleTile = this.getBoard().getMyBoard()[currentPos[0]+currentMove[0]][currentPos[1]+currentMove[1]];
 
-                if(possibleTile.getPiece()==null || possibleTile.getPiece().getColor()!=this.getColor()){
+                if(possibleTile.getPiece()==null || !possibleTile.getPiece().getColor().equals(this.getColor())){
                     Move[] possibleMove = new Move[] {new Move(this.getPosition(), this, possibleTile, possibleTile.getPiece())};
                     ret.add(possibleMove);
                 }
@@ -55,7 +55,7 @@ public class King extends Piece {
 
 
 
-        if(this.getPosition()==this.initialPositionTile && !this.getBoard().inCheck(this.getColor())){
+        if(this.getPosition().equals(this.initialPositionTile) && !this.getBoard().inCheck(this.getColor())){
             //work out logic for incheck
             //alter to work for rook
             if(this.getBoard().getRooks(this.getColor())[0].getPosition()==this.getBoard().getRooks(this.getColor())[0].getInitialPosition() && this.getBoard().getRooks(this.getColor())[1].getPosition()==this.getBoard().getRooks(this.getColor())[1].getInitialPosition()){
